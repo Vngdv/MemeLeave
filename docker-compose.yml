@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  memeleave:
+    restart: always
+    build: ./
+    volumes:
+    - ./sounds:/sounds
+    env_file:
+    - .env
