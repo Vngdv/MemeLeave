@@ -19,9 +19,7 @@ client.on('ready', () => {
 });
 
 client.on('voiceStateUpdate', function (oldMember, newMember) {
-    console.log('Voice state update');
     if (client.user.id != newMember.id && newMember.channel == null) {
-        console.log('User left');
         joinAndPlay(oldMember.channel);
     }
 });
@@ -29,7 +27,7 @@ client.on('voiceStateUpdate', function (oldMember, newMember) {
 async function joinAndPlay(channel) {
     var connection = await channel.join();
     var randomItem = soundFiles[Math.floor(Math.random() * soundFiles.length)];
-    console.log('Playing ' + randomItem + ' in channel ');
+    console.log('Playing ' + randomItem);
     var dispatcher = connection.play(randomItem, { volume: 0.3 });
 
     dispatcher.on('finish', () => {
