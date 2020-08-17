@@ -55,6 +55,8 @@ function joinAndPlay(channel) {
             dispatcher.destroy();
             conn.disconnect();
         });
+    }).catch(err => {
+        console.error('Failed to create a voice connection: ' + err);
     });
 }
 
