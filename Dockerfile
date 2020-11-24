@@ -12,14 +12,14 @@ RUN apk add --update-cache \
 COPY package.json ./
 COPY yarn.lock ./
 
-RUN yarn install --production
+RUN yarn --production
 
 # We only need our index.js at the moment
-COPY index.js /.
+COPY index.js ./
 
 VOLUME [ "/sounds" ]
 
 ENV GID=1000 \
     PUID=1000
 
-CMD [ "meme-leave" ]
+CMD [ "node", "index.js" ]
