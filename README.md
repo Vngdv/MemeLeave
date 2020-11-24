@@ -2,11 +2,17 @@
 
 This is a Discord bot used to play a random sound after someone leaves a channel.
 
-## How to run the MemeLeave with **Docker** and **Docker Compose**
+## Compose file example
 
-It is really simple you just have to follow these steps:
+`docker-compose.yml`
+```json
+version: '3'
 
-* Make sure you have Docker and Docker Compose installed.
-* Put your sounds in the 'sounds' folder one of them will be picked at random when someone leaves.
-* Change the Bot Token in the '.env' file.
-* Build and run the container with 'docker-compose up -d' for a detached startup.
+services:
+  memeleave:
+    image: vngdv/meme-leave:latest
+    volumes:
+    - ./sounds:/sounds
+    environment:
+    - token=YOUR-DISCORD-TOKEN
+```
