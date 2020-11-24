@@ -1,6 +1,6 @@
 FROM node:15.2.1-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 RUN apk add --update-cache \
         python \
@@ -17,7 +17,7 @@ RUN yarn --production
 # We only need our index.js at the moment
 COPY index.js ./
 
-VOLUME [ "/sounds" ]
+VOLUME [ "/app/sounds" ]
 
 ENV GID=1000 \
     PUID=1000

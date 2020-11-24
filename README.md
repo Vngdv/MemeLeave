@@ -12,7 +12,7 @@ services:
   memeleave:
     image: vngdv/meme-leave:latest
     volumes:
-    - ./sounds:/sounds
+    - ./app/sounds:/app/sounds
     environment:
     - token=YOUR-DISCORD-TOKEN
 ```
